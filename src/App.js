@@ -7,12 +7,17 @@ import { Footer } from './components/footer';
 import { Content } from './components/content';
 import { Navbar, Nav } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Read } from './components/read';
+import { Create } from './components/create';
 
 class App extends Component {
   render() {
     return (
+      //our navbar borrowed from react bootstrap
+      //the router that is being to define the paths for each component
       <Router>
         <div className="App">
+
 
           <Navbar bg="dark" variant="dark">
             <Navbar.Brand href="#home">Navbar</Navbar.Brand>
@@ -27,12 +32,13 @@ class App extends Component {
           <br />
           <switch>
             <Route path='/' component={Content} exact />
-            <Route path='/create' component={Header} exact />
-            <Route path='/read' component={Footer} />
+            <Route path='/create' component={Create} exact />
+            <Route path='/read' component={Read} />
           </switch>
 
         </div>
       </Router>
+      //above we have the switch method which allows us to call components using the path function
     );
   }
 }
