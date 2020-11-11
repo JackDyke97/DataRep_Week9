@@ -9,19 +9,18 @@ export class Read extends React.Component {
         //our array that hold all the movie info
         movies: []
     };
-//this method gets executed and uses axios to retrieve data from json
-//setting it equal to the movies array and using it to display the json data
+//this method gets executed and uses axios to retrieve data from api/movies
+//setting it equal to the movies array and using it to display the api data
 //have an error function that will catch any errors
     componentDidMount() {
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
-            .then(
-                (response) => {
-                    this.setState({ movies: response.data.Search })
-                }
-            )
-            .catch(
-                (error) => { console.log(error) }
-            );
+        axios
+          .get('http://localhost:4000/api/movies')
+          .then((response) => {
+            this.setState({ movies: response.data.movies });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
     }
 
     //our return function to call the movie component
