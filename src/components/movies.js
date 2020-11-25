@@ -6,7 +6,7 @@ export class Movies extends React.Component{
     //this is called to the read component which display it in the browser
     render(){
                 return this.props.movies.map( (movie)=>{
-                    return <MovieItem movie={movie}></MovieItem>
+                    return <MovieItem movie={movie} ReloadData={this.props.ReloadData}></MovieItem>
                 })
             }
        

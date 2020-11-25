@@ -83,6 +83,15 @@ app.get("/api/movies/:id", (req, res) => {
      })
 });
 
+app.delete('/api/movies/:id', (req, res)=>{
+  console.log("Delete Movie: "+req.params.id);
+
+  MovieModel.findByIdAndDelete(req.params.id, (err, data)=> {
+      res.send(data);
+    }
+)
+  });
+
 //post method that logs a message and the data that we put in on our create page
 app.post('/api/movies', (req,res)=>{
     console.log('post Successful');
